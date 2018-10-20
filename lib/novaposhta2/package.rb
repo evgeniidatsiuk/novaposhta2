@@ -45,7 +45,7 @@ module Novaposhta2
 
     # Get tracking information by tracking number.
     def self.track(tracking)
-      post('InternetDocument', 'documentsTracking', Documents: [tracking.to_s])['data'][0]
+      post('TrackingDocument', 'getStatusDocuments', Documents: [tracking.to_s])['data'][0]
     end
 
     private
