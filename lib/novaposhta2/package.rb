@@ -56,6 +56,7 @@ module Novaposhta2
           ServiceType: 'WarehouseWarehouse',
           Sender: config.sender['ref'],
           CitySender: config.sender['city'],
+          CityRef: config.sender['city'],
           SenderAddress: config.sender['address'],
           ContactSender: config.sender['contact'],
           SendersPhone: config.sender['phone'],
