@@ -76,8 +76,8 @@ module Novaposhta2
           InfoRegClientBarcodes: options[:internal_number],
           BackwardDeliveryData:  [ 
             { 
-            PayerType: 'Sender',
-            CargoType: 'Money', 
+            PayerType: 'Recipient',
+            #CargoType: 'Money', 
             RedeliveryString: options[:redelivery_amount] || 0,
             } 
           ]
