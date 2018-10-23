@@ -51,7 +51,7 @@ module Novaposhta2
     private
 
     def params
-      {
+      params = {
           DateTime: (options[:date] || Time.now).strftime('%d.%m.%Y'),
           ServiceType: 'WarehouseWarehouse',
           Sender: config.sender['ref'],
@@ -74,14 +74,17 @@ module Novaposhta2
           Weight: options[:weight] || 0.1,
           VolumeGeneral: options[:volume] || options[:width] * options[:height] * options[:depth],
           InfoRegClientBarcodes: options[:internal_number],
-          BackwardDeliveryData:  [ 
+      }
+      params.merge!({
+        BackwardDeliveryData:  [ 
             { 
             PayerType: 'Recipient',
-            #CargoType: 'Money', 
-            RedeliveryString: options[:redelivery_amount] || 0,
+            CargoType: 'Money', 
+            RedeliveryString: options[:redelivery_amount],
             } 
           ]
-      }
+      }) if options[:redelivery_amount] > 0
+      return params
     end
   end
 end
