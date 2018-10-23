@@ -65,17 +65,22 @@ module Novaposhta2
           RecipientAddress: @address.ref,
           ContactRecipient: @recipient.contact_ref,
           RecipientsPhone: @recipient.phone,
-          PaymentMethod: options[:payment_method],
-          PayerType: options[:payer_type],
+          PaymentMethod: options[:payment_method] || 'Cash',
+          PayerType: options[:payer_type] || 'Recipient',
           Cost: options[:cost],
-          Redelivery: options[:redelivery],
-          RedeliverySum: options[:redelivery_amount],
           SeatsAmount: options[:seats] || 1,
           Description: options[:description],
           CargoType: options[:cargo_type] || 'Parcel',
-          Weight: options[:weight],
+          Weight: options[:weight] || 0.1,
           VolumeGeneral: options[:volume] || options[:width] * options[:height] * options[:depth],
-          InfoRegClientBarcodes: options[:internal_number]
+          InfoRegClientBarcodes: options[:internal_number],
+          BackwardDeliveryData:  [ 
+            { 
+            PayerType: 'Sender',
+            CargoType: 'Money', 
+            RedeliveryString: options[:redelivery_amount] || 0,
+            } 
+          ]
       }
     end
   end
