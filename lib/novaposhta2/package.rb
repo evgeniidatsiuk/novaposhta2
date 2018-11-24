@@ -37,6 +37,9 @@ module Novaposhta2
     def print
       "https://my.novaposhta.ua/orders/printMarkings/orders/#{@ref}/type/html/apiKey/#{config.api_key}"
     end
+    def zprint
+      "https://my.novaposhta.ua/orders/printMarkings/orders/#{@ref}/type/pdf/apiKey/#{config.api_key}"
+    end
 
     # Get package tracking information.
     def track
