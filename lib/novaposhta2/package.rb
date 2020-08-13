@@ -56,7 +56,7 @@ module Novaposhta2
     def params
       params = {
           DateTime: (options[:date] || Time.now).strftime('%d.%m.%Y'),
-          ServiceType: 'WarehouseWarehouse',
+          ServiceType: (options[:service_type] == 'warehouse' ? 'WarehouseWarehouse' : 'WarehouseDoors'),
           Sender: config.sender['ref'],
           CitySender: config.sender['city'],
           CityRef: config.sender['city'],
@@ -64,8 +64,12 @@ module Novaposhta2
           ContactSender: config.sender['contact'],
           SendersPhone: config.sender['phone'],
           Recipient: @recipient.ref,
-          CityRecipient: @recipient.city.ref,
-          RecipientAddress: @address.ref,
+          RecipientCityName: @recipient.city.ref,,
+          RecipientAddressName: @address.ref, # street or warehouse,
+          RecipientHouse: @recipient.house,
+          RecipientFlat: @recipient.flat,
+          #CityRecipient: @recipient.city.ref,
+          #RecipientAddress: @address.ref, # street or warehouse
           ContactRecipient: @recipient.contact_ref,
           RecipientsPhone: @recipient.phone,
           PaymentMethod: options[:payment_method] || 'Cash',

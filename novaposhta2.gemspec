@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'novaposhta2'
   s.licenses     = ['MIT']
-  s.version     = '0.0.7'
+  s.version     = '0.0.8'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Oleg Kukareka']
   s.email       = 'oleg@kukareka.com'
