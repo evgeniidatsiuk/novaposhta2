@@ -11,10 +11,7 @@ module Novaposhta2
 
     # Lists all warehouses or returns warehouse by number.
     def warehouses(number = nil)
-      @warehouses ||= post('Address', 'getWarehouses', CityRef: @ref)['data'].map do |data|
-        Warehouse.new(data)
-      end
-
+      @warehouses ||= post('Address', 'getWarehouses', CityRef: @ref)['data'].map { |data| Warehouse.new(data) }
       if number.nil?
         @warehouses
       else
@@ -25,8 +22,8 @@ module Novaposhta2
     alias [] warehouses
 
     # Creates new person that belongs to the city.
-    def person(firstname, lastname, phone)
-      Person.new(self, firstname, lastname, phone)
+    def person(firstname, midname, lastname, phone)
+      Person.new(self, firstname, midname, lastname, phone)
     end
 
     class << self

@@ -1,15 +1,17 @@
 module Novaposhta2
   # Represents a package recipient.
   class Person < Base
-    attr_reader :city, :firstname, :lastname, :phone, :ref, :contact_ref # :nodoc:
+    attr_reader :city, :firstname, :middlename, :lastname, :phone, :ref, :contact_ref # :nodoc:
 
-    def initialize(city, firstname, lastname, phone) #:nodoc:
-      @city, @firstname, @lastname, @phone = city, firstname, lastname, phone
+    def initialize(city, firstname, middlename, lastname, phone) #:nodoc:
+      @city, @firstname, @middlename, @lastname, @phone = city, firstname, middlename, lastname, phone
+
 
       data = post('Counterparty', 'save',
         {
           CityRef: @city.ref,
           FirstName: @firstname,
+          MiddleName: @middlename,
           LastName: @lastname,
           Phone: @phone,
           CounterpartyType: :PrivatePerson,

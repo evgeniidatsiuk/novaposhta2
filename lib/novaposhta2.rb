@@ -8,6 +8,7 @@ require 'novaposhta2/person'
 require 'novaposhta2/city'
 require 'novaposhta2/warehouse'
 require 'novaposhta2/package'
+require 'novaposhta2/address'
 
 # Novaposhta API 2.0 Gem.
 # == Configuration

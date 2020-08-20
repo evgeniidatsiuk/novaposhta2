@@ -64,12 +64,8 @@ module Novaposhta2
           ContactSender: config.sender['contact'],
           SendersPhone: config.sender['phone'],
           Recipient: @recipient.ref,
-          RecipientCityName: @recipient.city.ref,,
-          RecipientAddressName: @address.ref, # street or warehouse,
-          RecipientHouse: @recipient.house,
-          RecipientFlat: @recipient.flat,
-          #CityRecipient: @recipient.city.ref,
-          #RecipientAddress: @address.ref, # street or warehouse
+          CityRecipient: @recipient.city.ref, #! 
+          RecipientAddress: @address.ref, # street or warehouse,
           ContactRecipient: @recipient.contact_ref,
           RecipientsPhone: @recipient.phone,
           PaymentMethod: options[:payment_method] || 'Cash',
