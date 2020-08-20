@@ -15,7 +15,7 @@ module Novaposhta2
         flat     = ''
       else 
         if address.split(',')[1]
-          if address.split(',')[1].match(/\//)
+          if address.split(',')[1].match?(/\//)
             building = address.split(',')[1].split('/')[0].to_s.strip
             flat     = address.split(',')[1].split('/')[1].to_s.strip
           else
