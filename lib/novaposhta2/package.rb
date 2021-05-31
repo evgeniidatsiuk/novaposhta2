@@ -81,7 +81,7 @@ module Novaposhta2
       params.merge!({
         BackwardDeliveryData:  [ 
             { 
-            PayerType: 'Recipient',
+            PayerType: 'Sender', #Recipient
             CargoType: 'Money', 
             RedeliveryString: options[:redelivery_amount],
             } 
