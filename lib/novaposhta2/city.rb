@@ -1,12 +1,30 @@
 module Novaposhta2
   # Represents a known city.
   class City < Base
-    attr_reader :description, :description_ru, :ref # :nodoc:
+    attr_reader :id, :description, :description_ru, :ref, :settlement_type, :settlement_type_ru # :nodoc:
+
+    # {"Description"=>"Трохимівка", "DescriptionRu"=>"Трофимовка",
+    # "Ref"=>"aac9169f-f981-11ea-80fb-b8830365bd04", "Delivery1"=>"1",
+    # "Delivery2"=>"0", "Delivery3"=>"1", "Delivery4"=>"0",
+    # "Delivery5"=>"1", "Delivery6"=>"0", "Delivery7"=>"0",
+    # "Area"=>"7150813c-9b87-11de-822f-000c2965ae0e",
+    # "SettlementType"=>"563ced13-f210-11e3-8c4a-0050568002cf",
+    # "IsBranch"=>"0", "PreventEntryNewStreetsUser"=>"0",
+    # "CityID"=>"6373", "SettlementTypeDescription"=>"село",
+    # "SettlementTypeDescriptionRu"=>"село", "
+    # SpecialCashCheck"=>1,
+    # "AreaDescription"=>"Херсонська",
+    # "AreaDescriptionRu"=>"Херсонская"}
 
     def initialize(params)
+      @id = params['CityID']
       @description = params['Description']
       @description_ru = params['DescriptionRu']
       @ref = params['Ref']
+      @settlement_type = params['SettlementTypeDescription']
+      @settlement_type_ru = params['SettlementTypeDescriptionRu']
+      @area_description = ['AreaDescription']
+      @area_description_ru = ['AreaDescriptionRu']
     end
 
     # Lists all warehouses or returns warehouse by number.
@@ -15,7 +33,7 @@ module Novaposhta2
       if number.nil?
         @warehouses
       else
-        @warehouses.find {|w| w.number == number}
+        @warehouses.find { |w| w.number == number }
       end
     end
 
@@ -55,6 +73,7 @@ module Novaposhta2
     end
 
     private
+
     def self.query(params)
       post('Address', 'getCities', params)['data'].map do |data|
         City.new(data)
