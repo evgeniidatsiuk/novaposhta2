@@ -9,6 +9,7 @@ require 'novaposhta2/city'
 require 'novaposhta2/warehouse'
 require 'novaposhta2/package'
 require 'novaposhta2/address'
+require 'novaposhta2/area'
 
 # Novaposhta API 2.0 Gem.
 # == Configuration
@@ -45,7 +46,5 @@ module Novaposhta2
   def self.track(tracking)
     Package.track(tracking)
   end
-
-
 
 end
