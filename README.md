@@ -8,7 +8,7 @@ Nova Poshta is a popular local shipping provider in Ukraine (https://novaposhta.
 Add the gem to your `Gemfile`:
 
 ```ruby
-gem 'novaposhta2', github: 'kukareka/novaposhta2'
+gem 'novaposhta2', github: 'evgeniidatsiuk/novaposhta2'
 ```
 
 And don't forget to run [Bundler](http://bundler.io/):
