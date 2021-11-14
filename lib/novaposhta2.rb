@@ -10,6 +10,7 @@ require 'novaposhta2/warehouse'
 require 'novaposhta2/package'
 require 'novaposhta2/address'
 require 'novaposhta2/area'
+require 'novaposhta2/settlement'
 
 # Novaposhta API 2.0 Gem.
 # == Configuration
