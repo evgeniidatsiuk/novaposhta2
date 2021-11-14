@@ -1,7 +1,7 @@
 module Novaposhta2
   # Represents a known city.
   class City < Base
-    attr_reader :id, :description, :description_ru, :ref, :settlement_type, :settlement_type_ru # :nodoc:
+    attr_reader :id, :description, :description_ru, :ref, :area_description, :area_description_ru, :settlement_type, :settlement_type_ru # :nodoc:
 
     # {"Description"=>"Трохимівка", "DescriptionRu"=>"Трофимовка",
     # "Ref"=>"aac9169f-f981-11ea-80fb-b8830365bd04", "Delivery1"=>"1",
