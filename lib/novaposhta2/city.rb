@@ -23,8 +23,8 @@ module Novaposhta2
       @ref = params['Ref']
       @settlement_type = params['SettlementTypeDescription']
       @settlement_type_ru = params['SettlementTypeDescriptionRu']
-      @area_description = ['AreaDescription']
-      @area_description_ru = ['AreaDescriptionRu']
+      @area_description = params['AreaDescription']
+      @area_description_ru = params['AreaDescriptionRu']
     end
 
     # Lists all warehouses or returns warehouse by number.
