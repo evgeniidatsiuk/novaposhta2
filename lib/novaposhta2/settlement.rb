@@ -1,7 +1,7 @@
 module Novaposhta2
   # Represents a settlement.
   class Settlement < Base
-    attr_reader :description, :description_ru, :ref, :region, :region_description, :region_description_ru, :area, :area_description, :area_description_ru, :settlement_type, :settlement_type_ru, :number, :longitude, :latitude #:nodoc:
+    attr_reader :description, :description_ru, :ref, :region, :region_description, :region_description_ru, :area, :area_description, :area_description_ru, :settlement_type, :settlement_type_ru, :number, :longitude, :latitude, :warehouse #:nodoc:
 
     def initialize(params)
       #:nodoc:
@@ -20,11 +20,13 @@ module Novaposhta2
       @area = params['Area']
       @area_description = params['AreaDescription']
       @area_description_ru = params['AreaDescriptionRu']
+      @warehouse = params['Warehouse']
     end
 
     # Returns list of all known settlements.
     def all
-      query() # Page
+      # TODO: Pagination
+      query() 
     end
 
     private
