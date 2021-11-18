@@ -29,26 +29,29 @@ module Novaposhta2
       has_more = true
       page = 1
 
-      while (has_more == true)
-        puts "page: #{page}"
+      while (has_more)
+        puts "Page: #{page}"
 
         result = query(Page: page)
         if result.blank?
           has_more = false
           return
         end
-
+        puts "result: #{result}"
         settlements << result
         page += 1
       end
 
-      settlements
+      puts "settlements: #{settlements.count}"
+
+      return settlements
     end
 
     private
 
     def self.query(params)
       post('AddressGeneral', 'getSettlements', params)['data'].map do |data|
+        puts "Settlements: #{data}"
         Settlement.new(data)
       end
     end
