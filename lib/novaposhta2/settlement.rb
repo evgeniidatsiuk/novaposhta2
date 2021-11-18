@@ -24,9 +24,25 @@ module Novaposhta2
     end
 
     # Returns list of all known settlements.
-    def all
-      # TODO: Pagination
-      query() 
+    def self.all
+      settlements = []
+      has_more = true
+      page = 1
+
+      while (has_more == true)
+        puts "page: #{page}"
+
+        result = query(Page: page)
+        if result.blank?
+          has_more = false
+          return
+        end
+
+        settlements << result
+        page += 1
+      end
+
+      settlements
     end
 
     private
