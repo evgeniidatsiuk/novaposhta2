@@ -38,6 +38,12 @@ You can get your own credentials on https://novaposhta.ua/.
 
 ## Usage
 
+Manage settlements:
+
+```ruby
+Novaposhta2::Settlement.get(Page: 1) # list of settlements
+```
+
 Manage cities:
 
 ```ruby
