@@ -51,7 +51,6 @@ module Novaposhta2
 
     def self.query(params)
       post('AddressGeneral', 'getSettlements', params)['data'].map do |data|
-        puts "Settlements: #{data}"
         Settlement.new(data)
       end
     end
