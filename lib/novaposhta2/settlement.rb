@@ -23,28 +23,9 @@ module Novaposhta2
       @warehouse = params['Warehouse']
     end
 
-    # Returns list of all known settlements.
-    def self.all
-      settlements = []
-      has_more = true
-      page = 1
-
-      while (has_more)
-        puts "Page: #{page}"
-
-        result = query(Page: page)
-        if result.blank?
-          has_more = false
-          return
-        end
-        puts "result: #{result}"
-        settlements << result
-        page += 1
-      end
-
-      puts "settlements: #{settlements.count}"
-
-      return settlements
+    # Returns 150 settlements per page.
+    def self.get(params)
+      query(params)
     end
 
     private
